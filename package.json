@@ -1,0 +1,24 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "脚手架",
+  "bin": {
+    "cli": "bin/cli.js",
+    "cli-list": "bin/cli-list.js",
+    "cli-init": "bin/cli-init.js",
+    "cli-add": "bin/cli-add.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "likaizhu",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^5.0.0",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^7.1.0",
+    "ora": "^4.0.3"
+  }
+}
