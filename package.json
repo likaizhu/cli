@@ -1,6 +1,6 @@
 {
-  "name": "cli",
-  "version": "1.0.0",
+  "name": "cli-lkz",
+  "version": "0.0.1",
   "description": "脚手架",
   "bin": {
     "cli": "bin/cli.js",
