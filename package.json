@@ -1,12 +1,13 @@
 {
   "name": "cli-lkz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "脚手架",
   "bin": {
     "cli": "bin/cli.js",
     "cli-list": "bin/cli-list.js",
     "cli-init": "bin/cli-init.js",
-    "cli-add": "bin/cli-add.js"
+    "cli-add": "bin/cli-add.js",
+    "cli-delete": "bin/cli-delete.js"
   },
   "main": "index.js",
   "scripts": {

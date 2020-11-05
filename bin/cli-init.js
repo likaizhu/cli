@@ -24,7 +24,7 @@ if (!projectName) {
   return
 }
 
-url = template[templateName]
+let url = template[templateName]
 
 console.log(chalk.white('\n Start generating... \n'))
 // 出现加载图标

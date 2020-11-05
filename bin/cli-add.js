@@ -8,7 +8,8 @@ const chalk = require('chalk')
 const fs = require('fs')
 // 读取根目录下的 template.json
 const template = require(`${__dirname}/../template`)
-
+const { addFileCallback } = require('../utils')
+// import { addFileCallback } from '../utils.js'
 // 自定义交互式命令行的问题及简单的校验
 let question = [
   {
@@ -35,14 +36,14 @@ let question = [
     },
   },
 ]
-const writeFileCallback = (err) => {
-  if (err) console.log(err)
-  console.log('\n')
-  console.log(chalk.green('添加模板成功!\n'))
-  console.log(chalk.grey('所有模板: \n'))
-  console.log(template)
-  console.log('\n')
-}
+// const writeFileCallback = (err) => {
+//   if (err) console.log(err)
+//   console.log('\n')
+//   console.log(chalk.green('添加模板成功!\n'))
+//   console.log(chalk.grey('所有模板: \n'))
+//   console.log(template)
+//   console.log('\n')
+// }
 inquirer.prompt(question).then((answers) => {
   // answers 就是用户输入的内容，是个对象
   let { name, url } = answers
@@ -52,6 +53,6 @@ inquirer.prompt(question).then((answers) => {
     `${__dirname}/../template.json`,
     JSON.stringify(template),
     'utf-8',
-    writeFileCallback
+    addFileCallback
   )
 })
