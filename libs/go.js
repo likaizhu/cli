@@ -1,25 +1,31 @@
 const ora = require('ora')
 const chalk = require('chalk')
-const download = require('download-git-repo')
+const fs = require('fs')
+const inquirer = require('inquirer')
+const download = require('../libs/download')
 const go = (next, url) => {
-  next.then((projectName) => {
-    console.log(chalk.white('\n Start generating... \n'))
-    // 出现加载图标
-    const spinner = ora('Downloading...')
-    spinner.start()
-    // 执行下载方法并传入参数
-    download(url, projectName, (err) => {
-      if (err) {
-        spinner.fail()
-        console.log(chalk.red(`Generation failed. ${err}`))
-        return
+  next
+    .then((projectRoot) => {
+      if (projectRoot !== '.') {
+        fs.mkdirSync(projectRoot)
       }
-      // 结束加载图标
-      spinner.succeed()
+      return download(projectRoot, url).then((target) => {
+        return {
+          name: projectRoot,
+          root: projectRoot,
+          target: target,
+        }
+      })
+    })
+    .then((res) => {
+      // 成功用绿色显示，给出积极的反馈
       console.log(chalk.cyan('\n Generation completed!'))
       console.log(chalk.cyan('\n To get started'))
-      console.log(chalk.cyan(`\n    cd ${projectName} \n`))
+      if(res.name!=='.')console.log(chalk.cyan(`\n    cd ${res.name} \n`))
     })
-  })
+    .catch((err) => {
+      // 失败了用红色，增强提示
+      console.log(chalk.red(`Generation failed. ${err}`))
+    })
 }
 module.exports = go

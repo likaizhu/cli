@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const inquirer = require('inquirer')
 const validate = (list, projectName, rootName) => {
   let next
   if (list.length) {
