@@ -2,10 +2,11 @@
 
 const program = require('commander')
 const chalk = require('chalk')
-const ora = require('ora')
-const download = require('download-git-repo')
+const glob = require('glob')
+const path = require('path')
 const template = require(`${__dirname}/../template`)
-
+const validate = require('../libs/validate')
+const go = require('../libs/go')
 program.usage('<template-name> [project-name]')
 program.parse(process.argv)
 // 当没有输入参数的时候给个提示
@@ -26,20 +27,8 @@ if (!projectName) {
 
 let url = template[templateName]
 
-console.log(chalk.white('\n Start generating... \n'))
-// 出现加载图标
-const spinner = ora('Downloading...')
-spinner.start()
-// 执行下载方法并传入参数
-download(url, projectName, (err) => {
-  if (err) {
-    spinner.fail()
-    console.log(chalk.red(`Generation failed. ${err}`))
-    return
-  }
-  // 结束加载图标
-  spinner.succeed()
-  console.log(chalk.cyan('\n Generation completed!'))
-  console.log(chalk.cyan('\n To get started'))
-  console.log(chalk.cyan(`\n    cd ${projectName} \n`))
-})
+const list = glob.sync('*')
+const rootName = path.basename(process.cwd())
+// 校验文件夹是否已经存在
+let next = validate(list, projectName, rootName)
+next && go(next, url)

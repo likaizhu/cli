@@ -8,7 +8,7 @@ const chalk = require('chalk')
 const fs = require('fs')
 // 读取根目录下的 template.json
 const template = require(`${__dirname}/../template`)
-const { addFileCallback } = require('../utils')
+const { addFileCallback } = require('../libs/utils')
 // import { addFileCallback } from '../utils.js'
 // 自定义交互式命令行的问题及简单的校验
 let question = [

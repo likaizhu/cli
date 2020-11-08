@@ -5,7 +5,7 @@ const inquirer = require('inquirer')
 const chalk = require('chalk')
 // node 内置文件模块
 const fs = require('fs')
-const { deleteFileCallback } = require('../utils')
+const { deleteFileCallback } = require('../libs/utils')
 // 读取根目录下的 template.json
 const template = require(`${__dirname}/../template`)
 
