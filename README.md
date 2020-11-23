@@ -2,4 +2,4 @@
 > command - add
 > command - init
 > command - list
-> command - delete(暂不支持)
+> command - delete

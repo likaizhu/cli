@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 // 交互式命令行
 const inquirer = require('inquirer')
-// 修改控制台字符串的样式
-const chalk = require('chalk')
 // node 内置文件模块
 const fs = require('fs')
 const { deleteFileCallback } = require('../libs/utils')

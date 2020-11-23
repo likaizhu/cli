@@ -31,4 +31,4 @@ const list = glob.sync('*')
 const rootName = path.basename(process.cwd())
 // 校验文件夹是否已经存在
 let next = validate(list, projectName, rootName)
-next && go(next, url)
+next && go(next, url, projectName)

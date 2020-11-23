@@ -1,4 +1,4 @@
-const template = require("./template")
+const template = require("../template")
 const chalk = require('chalk')
 const map = {
   add: '添加',

@@ -1,9 +1,7 @@
-const path = require('path')
 const ora = require('ora')
 const download = require('download-git-repo')
 
 module.exports = function (target, url) {
-  // target = path.join(target || '.', '.download-temp')
   return new Promise((resolve, reject) => {
     const spinner = ora(`正在下载项目模板，源地址：https://github.com/${url}`)
     spinner.start()

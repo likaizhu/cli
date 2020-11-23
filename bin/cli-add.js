@@ -2,12 +2,10 @@
 
 // 交互式命令行
 const inquirer = require('inquirer')
-// 修改控制台字符串的样式
-const chalk = require('chalk')
 // node 内置文件模块
 const fs = require('fs')
 // 读取根目录下的 template.json
-const template = require(`${__dirname}/../template`)
+const template = require(`${__dirname}/../template.json`)
 const { addFileCallback } = require('../libs/utils')
 // import { addFileCallback } from '../utils.js'
 // 自定义交互式命令行的问题及简单的校验
